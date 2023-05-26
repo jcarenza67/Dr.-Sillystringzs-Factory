@@ -100,7 +100,7 @@ namespace Factory.Controllers
     public ActionResult AddEngineer(int id)
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerFName");
       return View(thisMachine);
     }
 

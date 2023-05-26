@@ -4,34 +4,36 @@
 
 @model Factory.Models.Machine
 
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">Add a New Machine</h2>
-        </div>
-        <div class="card-body">
-            <form>
-                <div class="mb-3">
-                    <label for="machineType" class="form-label">Machine Type</label>
-                    @Html.TextBoxFor(model => model.MachineType, new { required = "required", @class = "form-control" })
-                </div>
-                <div class="mb-3">
-                    <label for="lastServiced" class="form-label">Last Serviced</label>
-                    @Html.TextBoxFor(model => model.LastServiced, new { required = "required", @class = "form-control" })
-                </div>
-                <div class="mb-3">
-                    <label for="age" class="form-label">Machine Age</label>
-                    @Html.TextBoxFor(model => model.Age, new { required = "required", @class = "form-control" })
-                </div>
-                <div class="mb-3">
-                    <label for="machineDescription" class="form-label">Description</label>
-                    @Html.TextBoxFor(model => model.MachineDescription, new { required = "required", @class = "form-control" })
-                </div>
-                <button type="submit" class="btn btn-primary">Add</button>
-            </form>
-        </div>
-        <div class="card-footer">
-            <p>@Html.ActionLink("Show all machines", "Index", "Machines", null, new { @class = "btn btn-secondary" })</p>
+<form action="/Machines/Create" method="post" class="form">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Add a New Machine</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="machineType" class="form-label">Machine Type</label>
+                        @Html.TextBoxFor(model => model.MachineType, new { required = "required", @class = "form-control" })
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastServiced" class="form-label">Last Serviced</label>
+                        @Html.TextBoxFor(model => model.LastServiced, new { required = "required", @class = "form-control" })
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Machine Age</label>
+                        @Html.TextBoxFor(model => model.Age, new { required = "required", @class = "form-control" })
+                    </div>
+                    <div class="mb-3">
+                        <label for="machineDescription" class="form-label">Description</label>
+                        @Html.TextBoxFor(model => model.MachineDescription, new { required = "required", @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            <div class="card-footer">
+                <p>@Html.ActionLink("Show all machines", "Index", "Machines", null, new { @class = "btn btn-secondary" })</p>
+            </div>
         </div>
     </div>
-</div>
+</form>

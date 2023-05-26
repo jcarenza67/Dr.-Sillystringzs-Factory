@@ -1,50 +1,50 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @using Factory.Models
 @model Factory.Models.Machine
 
 <div class="container">
-  <div class="card mb-4">
-    <div class="card-header">
-      <h2 class="card-title my-0">Machine Details: @Html.DisplayFor(model => model.MachineType)</h2>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2 class="card-title my-0">Machine Details: @Html.DisplayFor(model => model.MachineType)</h2>
+        </div>
+        <div class="card-body">
+            <h4 class="card-subtitle mb-3">Last Serviced: @Model.LastServiced</h4>
+            <h5 class="card-subtitle mb-2">Machine Age: @Html.DisplayFor(model => model.Age)</h5>
+            <h5 class="card-subtitle mb-3">Machine Description:</h5>
+            <p class="card-text">@Html.DisplayFor(model => model.MachineDescription)</p>
+        </div>
     </div>
-    <div class="card-body">
-      <h4 class="card-subtitle mb-3">Last Serviced: @Model.LastServiced</h4>
-      <h5 class="card-subtitle mb-2">Machine Age: @Html.DisplayFor(model => model.Age)</h5>
-      <h5 class="card-subtitle mb-3">Machine Description:</h5>
-      <p class="card-text">@Html.DisplayFor(model => model.MachineDescription)</p>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card-header">
-      <h4 class="card-title my-0">Servicing Engineers</h4>
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title my-0">Servicing Engineers</h4>
+        </div>
+        <div class="card-body">
+            @if (Model.JoinEntities.Count == 0)
+            {
+                <p>No engineers are servicing this machine!</p>
+            }
+            else
+            {
+                <ul class="list-group">
+                    @foreach (EngineerMachine join in Model.JoinEntities)
+                    {
+                        <li class="list-group-item">
+                            @Html.ActionLink($"{join.Engineer.EngineerFName}", "Details", "Engineers", new { id = join.Engineer.EngineerId }, new { @class = "engineer-link" })
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
     </div>
-    <div class="card-body">
-      @if(@Model.JoinEntities.Count == 0)
-      {
-        <p>No engineers are servicing this machine!</p>
-      }
-      else
-      {
-        <ul class="list-group">
-          @foreach(EngineerMachine join in Model.JoinEntities)
-          {
-            <li class="list-group-item">
-              @Html.ActionLink($"{join.Engineer.EngineerFName}", "Details", "Engineers", new { id = join.Engineer.EngineerId }, new { @class = "engineer-link" })
-            </li>
-          }
-        </ul>
-      }
-    </div>
-  </div>
 
-  <div class="mt-4">
-    @Html.ActionLink("Add an engineer for this machine", "AddEngineers", new { id = Model.MachineId }, new { @class = "btn btn-primary mt-3" })
-    @Html.ActionLink("Edit machine", "Edit", new { id = Model.MachineId }, new { @class = "btn btn-info mt-3" })
-    @Html.ActionLink("Back to machines", "Index", "Machines", null, new { @class = "btn btn-secondary mt-3" })
-    @Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId }, new { @class = "btn btn-danger mt-3" })
-  </div>
+    <div class="mt-4">
+        @Html.ActionLink("Add an engineer for this machine", "AddEngineer", new { id = Model.MachineId }, new { @class = "btn btn-primary mt-3" })
+        @Html.ActionLink("Edit machine", "Edit", new { id = Model.MachineId }, new { @class = "btn btn-info mt-3" })
+        @Html.ActionLink("Back to machines", "Index", "Machines", null, new { @class = "btn btn-secondary mt-3" })
+        @Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId }, new { @class = "btn btn-danger mt-3" })
+    </div>
 </div>
