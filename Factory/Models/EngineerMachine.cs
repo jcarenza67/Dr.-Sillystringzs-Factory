@@ -14,6 +14,5 @@ namespace Factory.Models
     
     public int EngineerId { get; set; }
     public Engineer Engineer { get; set; }
-    
   }
 }

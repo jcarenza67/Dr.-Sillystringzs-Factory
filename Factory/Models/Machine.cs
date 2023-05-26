@@ -13,7 +13,6 @@ namespace Factory.Models
     public string LastServiced {get; set;}
     public string Age {get; set;}
     public string MachineDescription { get; set; }
-    public List<EngineerMachine> JoinEntities {get;}
-    
+    public List<EngineerMachine> JoinEntities {get;} 
   }
 }
