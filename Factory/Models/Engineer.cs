@@ -13,6 +13,7 @@ namespace Factory.Models
     public string EngineerLName {get; set;}
     [Required(ErrorMessage = "Engineer License can't be left empty")]
     public string EngineerLicense {get; set;}
+    public string Comments {get; set;}
     public int MachineId { get; set; }
     public List<EngineerMachine> JoinEntities {get;}
   }
