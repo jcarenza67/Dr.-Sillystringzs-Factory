@@ -1,27 +1,37 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @model Factory.Models.Machine
 
-<h4>Add a new machine</h4>
-<hr />
-
-<p>@Html.ValidationMessageFor(model => model.MachineType, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
-
-@using (Html.BeginForm())
-{
-  <p>Machine Type: @Html.TextBoxFor(model => model.MachineType, new { required = "required" })</p>
-  
-
-  <p>Last Serviced: @Html.TextBoxFor(model => model.LastServiced, new { required = "required" })</p>
-  
-
-  <p>How old is this machine? @Html.TextBoxFor(model => model.Age, new { required = "required" })</p>
-
-  <p>Description: @Html.TextBoxFor(model => model.MachineDescription, new { required = "required" })</p>
-
-  <input type="submit" value="Add"/>
-}
-<br>
-<p>@Html.ActionLink("Show all machines", "Index", "Machines", null, new { @class = "btn btn-primary mb-2" })</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Add a New Machine</h2>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="mb-3">
+                    <label for="machineType" class="form-label">Machine Type</label>
+                    @Html.TextBoxFor(model => model.MachineType, new { required = "required", @class = "form-control" })
+                </div>
+                <div class="mb-3">
+                    <label for="lastServiced" class="form-label">Last Serviced</label>
+                    @Html.TextBoxFor(model => model.LastServiced, new { required = "required", @class = "form-control" })
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Machine Age</label>
+                    @Html.TextBoxFor(model => model.Age, new { required = "required", @class = "form-control" })
+                </div>
+                <div class="mb-3">
+                    <label for="machineDescription" class="form-label">Description</label>
+                    @Html.TextBoxFor(model => model.MachineDescription, new { required = "required", @class = "form-control" })
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+        <div class="card-footer">
+            <p>@Html.ActionLink("Show all machines", "Index", "Machines", null, new { @class = "btn btn-secondary" })</p>
+        </div>
+    </div>
+</div>

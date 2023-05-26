@@ -66,7 +66,7 @@
   align-items: center;
 }
 
-.machine-link {
+.machine-link, .engineer-link {
   text-decoration: none;
   color: #000;
   font-weight: bold;
@@ -74,6 +74,10 @@
 }
 
 .machine-link:hover {
+  color: #007bff;
+}
+
+.engineer-link:hover {
   color: #007bff;
 }
 
@@ -101,3 +105,32 @@
   filter: brightness(90%);
 }
 
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  background: #161313;
+  color: #ffffff;
+}
+
+#footer p {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: bounceAnimation 10s infinite;
+}
+
+@keyframes bounceAnimation {
+  0% {
+      transform: translateX(-100%);
+  }
+  50% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
