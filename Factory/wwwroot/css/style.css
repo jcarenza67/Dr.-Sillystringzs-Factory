@@ -34,13 +34,20 @@
   width: 100%;
 }
 
-#menu-icon {
-  transition: transform 0.3s;
+.flip {
+  animation: flipAnimation 1s;
 }
 
-#menu-icon.flip {
-  transform: rotate(-90deg);
+@keyframes flipAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
+
 
 .container {
   max-width: 800px;
@@ -93,6 +100,4 @@
 .btn-primary:hover {
   filter: brightness(90%);
 }
-
-
 
