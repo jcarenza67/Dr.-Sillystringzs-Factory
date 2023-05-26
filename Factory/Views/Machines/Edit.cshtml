@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h4>Edit this machine: @Html.DisplayFor(model => model.MachineType)</h4>
+
+<p>@Html.ValidationMessageFor(model => model.MachineType, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+
+  <p>Machine Type: @Html.EditorFor(model => model.MachineType)</p>
+  
+  
+  <p>Last Serviced: @Html.EditorFor(model => model.LastServiced)</p>
+  <p>How old is this Machine? @Html.EditorFor(model => model.Age)</p>
+  <p>Machine Description: </p>
+  <p>@Html.EditorFor(model => model.MachineDescription)</p>
+  
+
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to Machine list", "Index")</p>

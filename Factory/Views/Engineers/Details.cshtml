@@ -12,7 +12,8 @@
   <div class="card-body">
     <h3 class="card-title">First Name: @Html.DisplayFor(model => model.EngineerFName)</h3>
     <h3 class="card-title">Last Name: @Html.DisplayFor(model => model.EngineerLName)</h3>
-    <h4 class="card-subtitle mb-2 text-muted">License: @Html.DisplayFor(model => model.EngineerLicense)</h4> 
+    <h4 class="card-subtitle mb-2 text-muted">License: @Html.DisplayFor(model => model.EngineerLicense)</h4>
+    <h4 class="card-subtitle mb-2 text-muted">Comments: @Html.DisplayFor(model => model.Comments)</h4> 
 
     @if(@Model.JoinEntities.Count == 0)
     {
@@ -31,9 +32,12 @@
 
   </div>
 </div>
-      <p>@Html.ActionLink("Back to Engineers", "Index", null, new { @class = "btn btn-secondary mb-2" })</p>
+<br>
+    <div class="container">
+      <p>@Html.ActionLink("Back to Engineers", "Index", "Engineers", null, new { @class = "btn btn-primary mb-2" })</p>
       <p>@Html.ActionLink("Add a machine for this engineer", "AddMachine", new { id = Model.EngineerId }, new { @class = "btn btn-primary mb-2" })</p>
       <p>@Html.ActionLink("Edit engineer", "Edit", new { id = Model.EngineerId }, new { @class = "btn btn-warning mb-2" })</p>
       <p>@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId }, new { @class = "btn btn-danger mb-2" })</p>
       <p>@Html.ActionLink("Add new machine", "Create", "Machines", null, new { @class = "btn btn-success" })</p>
+    </div>
     
