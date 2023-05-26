@@ -21,7 +21,7 @@
 
   <p>Description: @Html.TextBoxFor(model => model.MachineDescription, new { required = "required" })</p>
 
-  <input type="submit" value="Add new engineer"/>
+  <input type="submit" value="Add"/>
 }
 <br>
-<p>@Html.ActionLink("Show all engineers", "Index")</p>
+<p>@Html.ActionLink("Show all machines", "Index", "Machines", null, new { @class = "btn btn-primary mb-2" })</p>

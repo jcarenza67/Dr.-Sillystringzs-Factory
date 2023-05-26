@@ -15,11 +15,13 @@
   <ul class="list-group mb-4">
     @foreach(Machine machine in Model)
     {
-      <li class="list-group-item">@Html.ActionLink($"{machine.MachineType}", "Details", new { id = machine.MachineId })</li>
+      <li class="list-group-item">
+        @Html.ActionLink($"{machine.MachineType}", "Details", new { id = machine.MachineId }, new { @class = "machine-link" })
+      </li>
     }
   </ul>
 
-  <p>@Html.ActionLink("Add new machine", "Create", null, new { @class = "btn btn-primary mb-2" })</p>
+  <p>@Html.ActionLink("Add new machine", "Create", "Machines", null, new { @class = "btn btn-primary mb-2" })</p>
   <p>@Html.ActionLink("Add new engineer", "Create", "Engineers", null, new { @class = "btn btn-primary mb-2" })</p>
   <p>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-secondary" })</p>
 </div>
