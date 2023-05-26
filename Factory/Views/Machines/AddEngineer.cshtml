@@ -1,25 +1,24 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @model Factory.Models.Machine
 
 <div class="container">
-  <h2 class="my-4">Add engineer</h2>
+    <h2>Add an Engineer</h2>
 
-  <h3 class="mb-4">Add an engineer to this machine: @Html.DisplayFor(model => model.MachineType)</h3>
+    <form method="post" class="form">
+        @Html.HiddenFor(model => model.MachineId)
 
-  @using (Html.BeginForm("AddEngineer", "Machines", FormMethod.Post, new { @class = "mb-4" }))
-  {
-    @Html.HiddenFor(model => model.MachineId)
+        <div class="form-group">
+            <label for="EngineerId">Engineer</label>
+            @Html.DropDownList("EngineerId", null, "-- Select Engineer --", new { @class = "form-control" })
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
 
-    <div class="form-group">
-      <label for="EngineerId" class="form-label">Select an engineer</label>
-      @Html.DropDownList("EngineerId", null, new { @class = "form-control" })
+    <div class="mt-3">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
     </div>
-
-    <input type="submit" value="Add engineers" class="btn btn-primary" />
-  }
-
-  @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary mt-3" })
 </div>
